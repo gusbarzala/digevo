@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-arcade-yellow: #FFD400;
+  --color-digivice-orange: #FF6B00;
+  --color-gabumon-blue: #005CBA;
+  --color-ink-black: #1A1600;
+
+  --color-light-primary: #005CBA;
+  --color-light-on-primary: #FFFFFF;
+  --color-light-primary-container: #D7E3FF;
+  --color-light-on-primary-container: #001B3E;
+
+  --color-light-secondary: #FF6B00;
+  --color-light-on-secondary: #1A0800;
+  --color-light-secondary-container: #FFDBCC;
+  --color-light-on-secondary-container: #351000;
+
+  --color-light-surface: #FFD400;
+  --color-light-on-surface: #1A1600;
+  --color-light-surface-container: #FFF0C6;
+  --color-light-surface-container-low: #FFE177;
+  --color-light-surface-container-high: #FFFBFF;
+  --color-light-on-surface-variant: #3B2F00;
+  --color-light-outline: #1A1600;
+  --color-light-outline-variant: #715D00;
+  --color-light-error: #BA1A1A;
+  --color-light-on-error: #FFFFFF;
+
+  --font-display: "Press Start 2P", sans-serif;
+  --font-headline: "Press Start 2P", sans-serif;
+  --font-title: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-label: "Poppins", sans-serif;
+  --font-mono: "Spline Sans Mono", monospace;
+
+  --spacing-gutter-xs: 4px;
+  --spacing-gutter-sm: 8px;
+  --spacing-gutter-md: 16px;
+  --spacing-gutter-lg: 24px;
+  --spacing-gutter-xl: 32px;
+  --spacing-section: 40px;
+  --spacing-page-margin: 24px;
+
+  --text-display-lg: 40px;
+  --text-display-lg--line-height: 52px;
+  --text-display-lg-mobile: 28px;
+  --text-display-lg-mobile--line-height: 36px;
+  --text-headline-lg: 24px;
+  --text-headline-lg--line-height: 34px;
+  --text-headline-lg-mobile: 18px;
+  --text-headline-lg-mobile--line-height: 26px;
+  --text-title-lg: 16px;
+  --text-title-lg--line-height: 24px;
+  --text-title-md: 16px;
+  --text-title-md--line-height: 22px;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-label-lg: 14px;
+  --text-label-lg--line-height: 20px;
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-mono-md: 13px;
+  --text-mono-md--line-height: 18px;
+}
+
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1 !important;
+  box-sizing: content-box;
+  overflow: hidden;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+}
+
+.arcade-shadow {
+  box-shadow: 4px 4px 0px #1A1600;
+}
+
+.arcade-shadow-sm {
+  box-shadow: 3px 3px 0px #1A1600;
+}
+
+.arcade-shadow-lg {
+  box-shadow: 6px 6px 0px #1A1600;
+}
+
+.arcade-shadow:active,
+.arcade-shadow-sm:active,
+.arcade-shadow-lg:active {
+  box-shadow: 1px 1px 0px #1A1600;
+}
+
+.arcade-title-shadow {
+  text-shadow: 4px 4px 0px #FF6B00;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

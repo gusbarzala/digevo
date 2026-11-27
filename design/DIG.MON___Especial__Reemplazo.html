@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Especial: Reemplazo</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow { box-shadow: 4px 4px 0px #1A1600; }
+    .arcade-shadow-sm { box-shadow: 3px 3px 0px #1A1600; }
+    .arcade-shadow:active, .arcade-shadow-sm:active { box-shadow: 1px 1px 0px #1A1600; }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual header -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <a href="../batalla/PantallaDeBatalla.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a batalla" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">ESPECIAL · CAMBIO</span>
+      </div>
+
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Animal / Digimon Swap Section -->
+    <main class="flex-1 flex flex-col gap-gutter-md">
+      <div class="flex flex-col gap-gutter-xs">
+        <h1 data-design-text-token="headline-lg-mobile" class="font-headline text-headline-lg-mobile text-light-on-surface uppercase">REEMPLAZO DIGI</h1>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">
+          Intercambia un compañero por otro (ej. Agumon por Palmon).
+        </p>
+      </div>
+
+      <section class="flex flex-col gap-gutter-sm">
+
+        <!-- Pair 1: Agumon <-> Palmon -->
+        <article class="swap-row bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-sm grid grid-cols-[1fr_auto_1fr] items-center gap-gutter-xs">
+          <div class="flex items-center gap-gutter-xs min-w-0">
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="left-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrC-zxDL2LR31v4ywKjA-zs8kB9fv0i_PjqYFso-7H6GiK2_a0DdREl_z_Idy-lIllqTzCe5GPB6tbmpy5DuF4Kk-1lvm454iT34pnc7NG4K77ZKpf3Kg3KZGkOVGXCFzS9nbXIebWRJCG9uKvig51kCURQSMMlhQnzuu_i4AdMzQCLMGcJBr7-VnLcmBUqlijJBioqwtZdjpm78V7cp-CKnM1zSXIrI0PRNnynihRISPOdrDaK_IO8" alt="Agumon" data-stitch-original-src="ac908132f6575915===../../images/agumon_partner.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="left-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Agumon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Tai</span>
+            </div>
+          </div>
+
+          <button type="button" class="swap-btn shrink-0 inline-flex items-center justify-center w-9 h-9 bg-light-primary text-light-on-primary border-2 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5" aria-label="Intercambiar Agumon y Palmon">
+            <span class="material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+          </button>
+
+          <div class="flex items-center justify-end gap-gutter-xs min-w-0">
+            <div class="flex flex-col items-end min-w-0">
+              <span class="right-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Palmon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Mimi</span>
+            </div>
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="right-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrAOoH0XP0ha4dHrMJzkGwDf4EbWyksrOoL1MjH0YCPH3vgxA35FH-4uiGTuBq57WSqeAhcc5e4Kol6PvAy3g-Vjm_D7cf-XGnunwAMF10sJQBczJSt6pQBgPT_nyRQodQ0rxgLHWKBM44gUhiwBo48ZfOf1FPxu6t_FNUllvk38RaR6NUId_JmEOjXNhCzX1LpzZqsMOQ9emagUYMTyXcVZqJYVKGRUueq6ZxgLal7Cz-F67k9C9y8f" alt="Palmon" data-stitch-original-src="ef0c7e1732d977d6===../../images/palmon_partner.jpg">
+            </div>
+          </div>
+        </article>
+
+        <!-- Pair 2: Gabumon <-> Biyomon -->
+        <article class="swap-row bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-sm grid grid-cols-[1fr_auto_1fr] items-center gap-gutter-xs">
+          <div class="flex items-center gap-gutter-xs min-w-0">
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="left-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrBi2ZcEyp8WzbY_1lf6ntqK3ie0wbzJ8KNMCKxlJw86sp-_ntydN2dLaaE8H7nq4LGGlWM-hgvbSgNAgQVC8qmBlzhTt0xdtIlAfM0veW50V-xsB1aLUCw6hyYlCuLnfllR-SFDZ8pK2rIfWC59yOkbVDm4_jXprwfYVAiBEjvmx9lk43N6jGjSeuOlV2F1EzMStDxuMbDauehH3xaE_hjgQPiV4-GKXRGwCtwKRgZes8bjuSW5a2c" alt="Gabumon" data-stitch-original-src="2549319940be63b1===../../images/gabumon_battle.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="left-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Gabumon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Matt</span>
+            </div>
+          </div>
+
+          <button type="button" class="swap-btn shrink-0 inline-flex items-center justify-center w-9 h-9 bg-light-secondary text-light-on-secondary border-2 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5" aria-label="Intercambiar Gabumon y Biyomon">
+            <span class="material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+          </button>
+
+          <div class="flex items-center justify-end gap-gutter-xs min-w-0">
+            <div class="flex flex-col items-end min-w-0">
+              <span class="right-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Biyomon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Sora</span>
+            </div>
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="right-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrBLImb9dYcBJ1M-AhhnOp0niMboSeTvv54PlfdFmb9a6KFZg7b3aSt-4VFABNn5Prw_RKszwhPJRS--OWEZElfmpQpSofNhLl7lcBvpWHlllqqzijYQYUI1jzmWh_3rZC_kggn9YJKdSHKEqd2ZFJnvnGsQU9IFnWl37Xgk_7sy6OZVQhZtWO5nENxGBpZXc2s1nq2OvsTvmL1C7RcOiuLBDfC_7X_ugnDb8Ka5MIImxdJakgbgagZwnQ" alt="Biyomon" data-stitch-original-src="538c813265a6e1f2===../../images/biyomon_partner.jpg">
+            </div>
+          </div>
+        </article>
+
+        <!-- Pair 3: Tentomon <-> Gomamon -->
+        <article class="swap-row bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-sm grid grid-cols-[1fr_auto_1fr] items-center gap-gutter-xs">
+          <div class="flex items-center gap-gutter-xs min-w-0">
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="left-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrCXaL4EW3c2efQ-VsHu6juxe7VRlsukW96g1oFNaZUhntfZxsP_nJl0o25z0VHzG8w_Xj1nCyAl7IoqVb5Ksr_FkcarliA2eQmuH5D5YX9YgUItL7WPuuA5sBoBBIW1OmGscrGYU4dDhWo6DFcugKk2Nn46t3R6sipMtvXW21wvXRTc6PQNMZk9KnYgkzD7rHDzdldMowaU7Fz_bf0RajE0bBwyk5_kAVmGO_pirpkib_aT3fN64ZiEvUM" alt="Tentomon" data-stitch-original-src="9c5b3284ad1f8323===../../images/tentomon_partner.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="left-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Tentomon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Izzy</span>
+            </div>
+          </div>
+
+          <button type="button" class="swap-btn shrink-0 inline-flex items-center justify-center w-9 h-9 bg-light-primary text-light-on-primary border-2 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5" aria-label="Intercambiar Tentomon y Gomamon">
+            <span class="material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+          </button>
+
+          <div class="flex items-center justify-end gap-gutter-xs min-w-0">
+            <div class="flex flex-col items-end min-w-0">
+              <span class="right-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Gomamon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Joe</span>
+            </div>
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="right-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrBGju-6RLIYFqp35LeaLIe3SJoH4BB9ylC9QHZciRvXJoqxla6O_aL3p63BZLEgtVC7blVwOWtdT_kvIy-cLu6EEoq4UtISfKuXSW_WG-U6E8VVHn6OgLUzFmfTK4EmbERyBYBbXhfnh2ylmiOSlf6UjNow_aDik5H4AfOlZdKfWKyoRwPNj2Hlr55wVEfvmFC6u6T6zq2nEZ-bD_WcX-16yOOrx2I4ff3ECr_PuR0oiiT2DSDMY4mY" alt="Gomamon" data-stitch-original-src="5e5d925cc34af1e8===../../images/gomamon_partner.jpg">
+            </div>
+          </div>
+        </article>
+
+        <!-- Pair 4: Patamon <-> Gatomon -->
+        <article class="swap-row bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-sm grid grid-cols-[1fr_auto_1fr] items-center gap-gutter-xs">
+          <div class="flex items-center gap-gutter-xs min-w-0">
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="left-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrC-NgKib0dw4YvQT_3OBz48Wm4RTafCAyZYc14RPtICKKK8-fe5eUmwLzdBgQkxZWL2M2nqznoUb3hGRRMTP612719MVJYQTGRI3WlKRxgZXzXclxwV-1DGwySbyWPOjXrQDvcIdry7rNgCgJwpo-fidBuiIDZIUZY2btaTFFglSBpU0jEoSOGB9GJO-jeTfHCHiFINYl_C5W05QZkuSHcV49pBcsnr5hrmAO_-t8opYrYTq-UURYtyKA" alt="Patamon" data-stitch-original-src="2dfa17688f6d58a2===../../images/patamon_partner.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="left-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Patamon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">T.K.</span>
+            </div>
+          </div>
+
+          <button type="button" class="swap-btn shrink-0 inline-flex items-center justify-center w-9 h-9 bg-light-secondary text-light-on-secondary border-2 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5" aria-label="Intercambiar Patamon y Gatomon">
+            <span class="material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+          </button>
+
+          <div class="flex items-center justify-end gap-gutter-xs min-w-0">
+            <div class="flex flex-col items-end min-w-0">
+              <span class="right-name font-title text-label-sm text-light-on-surface" data-design-text-token="label-sm">Gatomon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">Kari</span>
+            </div>
+            <div class="w-9 h-9 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img class="right-img w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida/ALJJyrCXrimLg9jEIQ98kLjaTcmOyDJsITIAxHuXCOwXh3pGdvrZtxmoLg3MZPO7NThWnpsL2a_YsRaWVW3yawzRJ-rkqplVFaOwX9mYo-CVheFy7ZHXgDh7VUlI9xOnpyg6QIyBxBtx5rgZpZKOcQ5SSVHkLWGRZ7yiPE2K1gZebPCTVWQTWEgji-c6VqzGd4zpy2y-b49zol_av4gHKPsChS8624EHCbNrqfs0yfI1WgMdlWFYn5fCID63" alt="Gatomon" data-stitch-original-src="e52bec574326ec2b===../../images/gatomon_partner.jpg">
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- Status Footer -->
+    <footer aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+      <p id="swap-status" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+        Toca las flechas para reemplazar un compañero por otro.
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var muted = false;
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      var statusEl = document.getElementById('swap-status');
+      document.querySelectorAll('.swap-row').forEach(function (row) {
+        var btn = row.querySelector('.swap-btn');
+        var leftName = row.querySelector('.left-name');
+        var rightName = row.querySelector('.right-name');
+        var leftImg = row.querySelector('.left-img');
+        var rightImg = row.querySelector('.right-img');
+
+        btn.addEventListener('click', function () {
+          var tmpName = leftName.textContent;
+          leftName.textContent = rightName.textContent;
+          rightName.textContent = tmpName;
+
+          var tmpSrc = leftImg.src;
+          leftImg.src = rightImg.src;
+          rightImg.src = tmpSrc;
+
+          var tmpAlt = leftImg.alt;
+          leftImg.alt = rightImg.alt;
+          rightImg.alt = tmpAlt;
+
+          statusEl.textContent = '¡Reemplazo hecho! ' + leftName.textContent + ' ↔ ' + rightName.textContent + '.';
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

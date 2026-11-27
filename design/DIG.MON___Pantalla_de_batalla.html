@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Pantalla de batalla</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow {
+      box-shadow: 4px 4px 0px #1A1600;
+    }
+    .arcade-shadow-sm {
+      box-shadow: 3px 3px 0px #1A1600;
+    }
+    .arcade-shadow:active, .arcade-shadow-sm:active {
+      box-shadow: 1px 1px 0px #1A1600;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual battle bar -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <!-- COMPONENT: button-icon -->
+      <a href="../inicio/Inicio.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a inicio" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span id="turn-badge" class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">BATALLA · TURNO 01</span>
+      </div>
+
+      <!-- COMPONENT: button-icon -->
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Top Icon Menu -->
+    <nav aria-label="Menú principal" class="grid grid-cols-6 gap-gutter-xs">
+      <a href="../inicio/Inicio.html" aria-label="Inicio" title="Inicio" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">home</span></a>
+      <a href="../jugar/Jugar.html" aria-label="Jugar" title="Jugar" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span></a>
+      <a href="../batalla/PantallaDeBatalla.html" aria-label="Batalla" title="Batalla" class="inline-flex items-center justify-center h-10 bg-light-primary text-light-on-primary border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">swords</span></a>
+      <a href="../companeros/CompanerosDigi.html" aria-label="Compañeros" title="Compañeros" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">groups</span></a>
+      <a href="../inventario/InventarioDeObjetos.html" aria-label="Inventario" title="Inventario" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">backpack</span></a>
+      <a href="../villanos/VillanosTemporada1.html" aria-label="Villanos" title="Villanos" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">skull</span></a>
+    </nav>
+
+    <!-- Battle Arena -->
+    <main class="flex-1 flex flex-col justify-center gap-gutter-md">
+
+      <!-- Enemy Card -->
+      <!-- COMPONENT: card-elevated -->
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md grid grid-cols-12 items-center gap-gutter-md">
+        <div class="col-span-8 flex flex-col gap-gutter-xs">
+          <div class="flex items-center justify-between gap-gutter-xs">
+            <h2 data-design-text-token="title-lg" class="font-headline text-title-lg text-light-on-surface">DEVIMON</h2>
+            <span data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface-variant tabular-nums">NV. 03</span>
+          </div>
+          <p data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant uppercase">Villano · Oscuridad</p>
+
+          <div class="flex flex-col gap-gutter-xs pt-gutter-xs">
+            <div class="flex items-center justify-between">
+              <span data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface tabular-nums">PS</span>
+              <span id="enemy-hp-text" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface tabular-nums">120 / 120</span>
+            </div>
+            <div class="w-full h-3 bg-light-surface-container-low border-2 border-light-outline rounded-sm overflow-hidden">
+              <div id="enemy-hp-bar" class="h-full bg-light-error transition-transform duration-surface-enter origin-left" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-4 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface-container">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCGwzSfI-qgba_0mTD3QdY68mHVjyfLSUdtpgKMDWepWdXmQmGPOzIZu03v_Jsp1F19cED2W4GGg2sJW-9RXCXeaymumM0e3aA_SWkXX6xyUssmvBp7bTbdNis6rKGaKMsYDKwL8W6S-yJ9QQsmfexoZxteT2UwRVCsK6cvlNvO6NDmDyOPi5zQDmTu9ag_wZNyp8ZC6ZMl0DMXxvk2wj3_iXRRkrZauwcGXk5zskz26Nx_-vRiTd8" alt="Devimon en posición de batalla" class="w-full aspect-square object-cover block" data-stitch-original-src="b388077658e33354===../../images/devimon_battle.jpg">
+        </div>
+      </article>
+
+      <!-- Player Partner Card -->
+      <!-- COMPONENT: card-elevated -->
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md grid grid-cols-12 items-center gap-gutter-md">
+        <div class="col-span-4 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface-container">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBi2ZcEyp8WzbY_1lf6ntqK3ie0wbzJ8KNMCKxlJw86sp-_ntydN2dLaaE8H7nq4LGGlWM-hgvbSgNAgQVC8qmBlzhTt0xdtIlAfM0veW50V-xsB1aLUCw6hyYlCuLnfllR-SFDZ8pK2rIfWC59yOkbVDm4_jXprwfYVAiBEjvmx9lk43N6jGjSeuOlV2F1EzMStDxuMbDauehH3xaE_hjgQPiV4-GKXRGwCtwKRgZes8bjuSW5a2c" alt="Gabumon listo para atacar" class="w-full aspect-square object-cover block" data-stitch-original-src="2549319940be63b1===../../images/gabumon_battle.jpg">
+        </div>
+
+        <div class="col-span-8 flex flex-col gap-gutter-xs">
+          <div class="flex items-center justify-between gap-gutter-xs">
+            <h2 data-design-text-token="title-lg" class="font-headline text-title-lg text-light-on-surface">GABUMON</h2>
+            <span data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface-variant tabular-nums">NV. 02</span>
+          </div>
+          <p data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant uppercase">Niño: Matt · Monstruo</p>
+
+          <div class="flex flex-col gap-gutter-xs pt-gutter-xs">
+            <div class="flex items-center justify-between">
+              <span data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface tabular-nums">PS</span>
+              <span id="player-hp-text" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface tabular-nums">95 / 100</span>
+            </div>
+            <div class="w-full h-3 bg-light-surface-container-low border-2 border-light-outline rounded-sm overflow-hidden">
+              <div id="player-hp-bar" class="h-full bg-light-primary transition-transform duration-surface-enter origin-left" style="width: 95%;"></div>
+            </div>
+
+            <div class="flex items-center justify-between pt-gutter-xs">
+              <span data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface-variant tabular-nums">PE</span>
+              <span id="player-ep-text" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface-variant tabular-nums">40 / 50</span>
+            </div>
+            <div class="w-full h-2.5 bg-light-surface-container-low border-2 border-light-outline rounded-sm overflow-hidden">
+              <div id="player-ep-bar" class="h-full bg-light-secondary transition-transform duration-surface-enter origin-left" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Combat Log Banner -->
+      <section aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+        <p id="battle-log" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+          ¡Gabumon está listo! Elige tu próximo movimiento.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- 2x2 Arcade Action Grid -->
+    <footer class="grid grid-cols-2 gap-gutter-sm pb-gutter-xs">
+      <!-- COMPONENT: button-with-icon-primary -->
+      <a id="btn-evolve" href="../digevol/Digevol.html" data-component-id="button-with-icon-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center gap-gutter-xs px-gutter-sm py-gutter-md bg-light-primary text-light-on-primary border-4 border-light-outline rounded arcade-shadow font-headline text-label-sm uppercase tracking-wide transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span>
+        <span data-design-text-token="label-sm">DIGIEVOL</span>
+      </a>
+
+      <!-- COMPONENT: button-with-icon-secondary -->
+      <a id="btn-attack" href="../atacar/Atacar.html" data-component-id="button-with-icon-secondary" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center justify-center gap-gutter-xs px-gutter-sm py-gutter-md bg-light-secondary text-light-on-secondary border-4 border-light-outline rounded arcade-shadow font-headline text-label-sm uppercase tracking-wide transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined" aria-hidden="true">bolt</span>
+        <span data-design-text-token="label-sm">ATACAR</span>
+      </a>
+
+      <!-- COMPONENT: button-with-icon-surface -->
+      <a id="btn-defend" href="../escudo/Escudo.html" data-component-id="button-with-icon-surface" data-component-type="button" data-component-variant="tertiary" class="inline-flex items-center justify-center gap-gutter-xs px-gutter-sm py-gutter-md bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow font-headline text-label-sm uppercase tracking-wide transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined" aria-hidden="true">shield</span>
+        <span data-design-text-token="label-sm">ESCUDO</span>
+      </a>
+
+      <!-- COMPONENT: button-with-icon-surface -->
+      <a id="btn-special" href="../especial/Especial.html" data-component-id="button-with-icon-surface" data-component-type="button" data-component-variant="tertiary" class="inline-flex items-center justify-center gap-gutter-xs px-gutter-sm py-gutter-md bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow font-headline text-label-sm uppercase tracking-wide transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined" aria-hidden="true">swap_horiz</span>
+        <span data-design-text-token="label-sm">ESPECIAL</span>
+      </a>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var enemyHp = 120;
+      var enemyMax = 120;
+      var playerHp = 95;
+      var playerMax = 100;
+      var playerEp = 40;
+      var playerEpMax = 50;
+      var turn = 1;
+      var muted = false;
+
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var turnBadge = document.getElementById('turn-badge');
+      var battleLog = document.getElementById('battle-log');
+      var enemyHpText = document.getElementById('enemy-hp-text');
+      var enemyHpBar = document.getElementById('enemy-hp-bar');
+      var playerHpText = document.getElementById('player-hp-text');
+      var playerHpBar = document.getElementById('player-hp-bar');
+      var playerEpText = document.getElementById('player-ep-text');
+      var playerEpBar = document.getElementById('player-ep-bar');
+
+      function updateUI() {
+        turnBadge.textContent = 'BATALLA · TURNO ' + (turn < 10 ? '0' + turn : turn);
+        enemyHpText.textContent = enemyHp + ' / ' + enemyMax;
+        enemyHpBar.style.width = Math.max(0, (enemyHp / enemyMax) * 100) + '%';
+        playerHpText.textContent = playerHp + ' / ' + playerMax;
+        playerHpBar.style.width = Math.max(0, (playerHp / playerMax) * 100) + '%';
+        playerEpText.textContent = playerEp + ' / ' + playerEpMax;
+        playerEpBar.style.width = Math.max(0, (playerEp / playerEpMax) * 100) + '%';
+      }
+
+      function nextTurn(dmg, epCost, message) {
+        if (enemyHp <= 0) {
+          enemyHp = enemyMax;
+          playerHp = playerMax;
+          playerEp = playerEpMax;
+          turn = 1;
+          battleLog.textContent = '¡Nueva ronda! Devimon regresa al combate.';
+          updateUI();
+          return;
+        }
+        if (playerEp < epCost) {
+          battleLog.textContent = '¡Sin energía suficiente! Usa ATACAR o ESCUDO.';
+          return;
+        }
+        enemyHp = Math.max(0, enemyHp - dmg);
+        playerEp = Math.max(0, playerEp - epCost);
+        turn += 1;
+        if (enemyHp === 0) {
+          battleLog.textContent = '¡Victoria! Gabumon derrotó a Devimon.';
+        } else {
+          battleLog.textContent = message;
+        }
+        updateUI();
+      }
+
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      document.getElementById('btn-attack').addEventListener('click', function () {
+        nextTurn(18, 0, '¡Gabumon usó Golpe Rápido e hizo 18 de daño!');
+      });
+
+      document.getElementById('btn-special').addEventListener('click', function () {
+        nextTurn(34, 15, '¡Fuego Azul impactó con fuerza! 34 de daño.');
+      });
+
+      document.getElementById('btn-defend').addEventListener('click', function () {
+        playerEp = Math.min(playerEpMax, playerEp + 10);
+        turn += 1;
+        battleLog.textContent = 'Gabumon activó Escudo y recuperó +10 PE.';
+        updateUI();
+      });
+
+      document.getElementById('btn-evolve').addEventListener('click', function () {
+        nextTurn(45, 25, '¡Energía Digivice al máximo! Ataque crítico de 45.');
+      });
+    })();
+  </script>
+
+
+</body></html>

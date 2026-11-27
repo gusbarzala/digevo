@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Compañeros y Digievolución</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow {
+      box-shadow: 4px 4px 0px #1A1600;
+    }
+    .arcade-shadow-sm {
+      box-shadow: 3px 3px 0px #1A1600;
+    }
+    .arcade-shadow:active, .arcade-shadow-sm:active {
+      box-shadow: 1px 1px 0px #1A1600;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual header -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <!-- COMPONENT: button-icon -->
+      <a href="../inicio/Inicio.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a inicio" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">NIÑOS ELEGIDOS · 08</span>
+      </div>
+
+      <!-- COMPONENT: button-icon -->
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Top Icon Menu -->
+    <nav aria-label="Menú principal" class="grid grid-cols-6 gap-gutter-xs">
+      <a href="../inicio/Inicio.html" aria-label="Inicio" title="Inicio" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">home</span></a>
+      <a href="../jugar/Jugar.html" aria-label="Jugar" title="Jugar" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span></a>
+      <a href="../batalla/PantallaDeBatalla.html" aria-label="Batalla" title="Batalla" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">swords</span></a>
+      <a href="../companeros/CompanerosDigi.html" aria-label="Compañeros" title="Compañeros" class="inline-flex items-center justify-center h-10 bg-light-primary text-light-on-primary border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">groups</span></a>
+      <a href="../inventario/InventarioDeObjetos.html" aria-label="Inventario" title="Inventario" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">backpack</span></a>
+      <a href="../villanos/VillanosTemporada1.html" aria-label="Villanos" title="Villanos" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">skull</span></a>
+    </nav>
+
+    <!-- Main Partners + DIGI Evolution List -->
+    <main class="flex-1 flex flex-col gap-gutter-md">
+      <div class="flex flex-col gap-gutter-xs">
+        <h1 data-design-text-token="headline-lg-mobile" class="font-headline text-headline-lg-mobile text-light-on-surface uppercase">DIGIEVOLUCIONES</h1>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">
+          Toca cualquier evolución para transformar a cada compañero.
+        </p>
+      </div>
+
+      <section class="flex flex-col gap-gutter-md">
+
+        <!-- 1. Tai -> Agumon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Tai">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrC-zxDL2LR31v4ywKjA-zs8kB9fv0i_PjqYFso-7H6GiK2_a0DdREl_z_Idy-lIllqTzCe5GPB6tbmpy5DuF4Kk-1lvm454iT34pnc7NG4K77ZKpf3Kg3KZGkOVGXCFzS9nbXIebWRJCG9uKvig51kCURQSMMlhQnzuu_i4AdMzQCLMGcJBr7-VnLcmBUqlijJBioqwtZdjpm78V7cp-CKnM1zSXIrI0PRNnynihRISPOdrDaK_IO8" alt="Agumon de Tai" class="partner-img w-full h-full object-cover block" data-stitch-original-src="ac908132f6575915===../../images/agumon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Agumon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niño: Tai</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Agumon" data-stage="1" data-img="../../images/agumon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Agumon</span></button>
+            <button type="button" data-form="Greymon" data-stage="2" data-img="../../images/greymon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Greymon</span></button>
+            <button type="button" data-form="MetalGreymon" data-stage="3" data-img="../../images/metalgreymon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · MetalGreymon</span></button>
+            <button type="button" data-form="WarGreymon" data-stage="4" data-img="../../images/wargreymon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · WarGreymon</span></button>
+            <button type="button" data-form="Omnimon" data-stage="5" data-img="../../images/omnimon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Omnimon</span></button>
+          </div>
+        </article>
+
+        <!-- 2. Matt -> Gabumon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Matt">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBi2ZcEyp8WzbY_1lf6ntqK3ie0wbzJ8KNMCKxlJw86sp-_ntydN2dLaaE8H7nq4LGGlWM-hgvbSgNAgQVC8qmBlzhTt0xdtIlAfM0veW50V-xsB1aLUCw6hyYlCuLnfllR-SFDZ8pK2rIfWC59yOkbVDm4_jXprwfYVAiBEjvmx9lk43N6jGjSeuOlV2F1EzMStDxuMbDauehH3xaE_hjgQPiV4-GKXRGwCtwKRgZes8bjuSW5a2c" alt="Gabumon de Matt" class="partner-img w-full h-full object-cover block" data-stitch-original-src="2549319940be63b1===../../images/gabumon_battle.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Gabumon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niño: Matt</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Gabumon" data-stage="1" data-img="../../images/gabumon_battle.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Gabumon</span></button>
+            <button type="button" data-form="Garurumon" data-stage="2" data-img="../../images/garurumon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Garurumon</span></button>
+            <button type="button" data-form="WereGarurumon" data-stage="3" data-img="../../images/weregarurumon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · WereGaruru</span></button>
+            <button type="button" data-form="MetalGarurumon" data-stage="4" data-img="../../images/metalgarurumon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · MetalGaruru</span></button>
+            <button type="button" data-form="Omnimon" data-stage="5" data-img="../../images/omnimon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Omnimon</span></button>
+          </div>
+        </article>
+
+        <!-- 3. Sora -> Biyomon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Sora">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBLImb9dYcBJ1M-AhhnOp0niMboSeTvv54PlfdFmb9a6KFZg7b3aSt-4VFABNn5Prw_RKszwhPJRS--OWEZElfmpQpSofNhLl7lcBvpWHlllqqzijYQYUI1jzmWh_3rZC_kggn9YJKdSHKEqd2ZFJnvnGsQU9IFnWl37Xgk_7sy6OZVQhZtWO5nENxGBpZXc2s1nq2OvsTvmL1C7RcOiuLBDfC_7X_ugnDb8Ka5MIImxdJakgbgagZwnQ" alt="Biyomon de Sora" class="partner-img w-full h-full object-cover block" data-stitch-original-src="538c813265a6e1f2===../../images/biyomon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Biyomon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niña: Sora</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Biyomon" data-stage="1" data-img="../../images/biyomon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Biyomon</span></button>
+            <button type="button" data-form="Birdramon" data-stage="2" data-img="../../images/birdramon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Birdramon</span></button>
+            <button type="button" data-form="Garudamon" data-stage="3" data-img="../../images/garudamon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · Garudamon</span></button>
+            <button type="button" data-form="Phoenixmon" data-stage="4" data-img="../../images/birdramon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · Phoenixmon</span></button>
+            <button type="button" data-form="Valkyrimon" data-stage="5" data-img="../../images/garudamon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Valkyrimon</span></button>
+          </div>
+        </article>
+
+        <!-- 4. Izzy -> Tentomon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Izzy">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrCXaL4EW3c2efQ-VsHu6juxe7VRlsukW96g1oFNaZUhntfZxsP_nJl0o25z0VHzG8w_Xj1nCyAl7IoqVb5Ksr_FkcarliA2eQmuH5D5YX9YgUItL7WPuuA5sBoBBIW1OmGscrGYU4dDhWo6DFcugKk2Nn46t3R6sipMtvXW21wvXRTc6PQNMZk9KnYgkzD7rHDzdldMowaU7Fz_bf0RajE0bBwyk5_kAVmGO_pirpkib_aT3fN64ZiEvUM" alt="Tentomon de Izzy" class="partner-img w-full h-full object-cover block" data-stitch-original-src="9c5b3284ad1f8323===../../images/tentomon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Tentomon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niño: Izzy</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Tentomon" data-stage="1" data-img="../../images/tentomon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Tentomon</span></button>
+            <button type="button" data-form="Kabuterimon" data-stage="2" data-img="../../images/kabuterimon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Kabuteri</span></button>
+            <button type="button" data-form="MegaKabuterimon" data-stage="3" data-img="../../images/megakabuterimon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · MegaKabuteri</span></button>
+            <button type="button" data-form="HerculesKabuterimon" data-stage="4" data-img="../../images/megakabuterimon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · H.Kabuteri</span></button>
+            <button type="button" data-form="TyrantKabuterimon" data-stage="5" data-img="../../images/kabuterimon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · TyrantKabuteri</span></button>
+          </div>
+        </article>
+
+        <!-- 5. Mimi -> Palmon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Mimi">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrAOoH0XP0ha4dHrMJzkGwDf4EbWyksrOoL1MjH0YCPH3vgxA35FH-4uiGTuBq57WSqeAhcc5e4Kol6PvAy3g-Vjm_D7cf-XGnunwAMF10sJQBczJSt6pQBgPT_nyRQodQ0rxgLHWKBM44gUhiwBo48ZfOf1FPxu6t_FNUllvk38RaR6NUId_JmEOjXNhCzX1LpzZqsMOQ9emagUYMTyXcVZqJYVKGRUueq6ZxgLal7Cz-F67k9C9y8f" alt="Palmon de Mimi" class="partner-img w-full h-full object-cover block" data-stitch-original-src="ef0c7e1732d977d6===../../images/palmon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Palmon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niña: Mimi</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Palmon" data-stage="1" data-img="../../images/palmon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Palmon</span></button>
+            <button type="button" data-form="Togemon" data-stage="2" data-img="../../images/togemon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Togemon</span></button>
+            <button type="button" data-form="Lillymon" data-stage="3" data-img="../../images/lillymon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · Lillymon</span></button>
+            <button type="button" data-form="Rosemon" data-stage="4" data-img="../../images/lillymon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · Rosemon</span></button>
+            <button type="button" data-form="Rosemon BM" data-stage="5" data-img="../../images/lillymon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Rosemon BM</span></button>
+          </div>
+        </article>
+
+        <!-- 6. Joe -> Gomamon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Joe">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBGju-6RLIYFqp35LeaLIe3SJoH4BB9ylC9QHZciRvXJoqxla6O_aL3p63BZLEgtVC7blVwOWtdT_kvIy-cLu6EEoq4UtISfKuXSW_WG-U6E8VVHn6OgLUzFmfTK4EmbERyBYBbXhfnh2ylmiOSlf6UjNow_aDik5H4AfOlZdKfWKyoRwPNj2Hlr55wVEfvmFC6u6T6zq2nEZ-bD_WcX-16yOOrx2I4ff3ECr_PuR0oiiT2DSDMY4mY" alt="Gomamon de Joe" class="partner-img w-full h-full object-cover block" data-stitch-original-src="5e5d925cc34af1e8===../../images/gomamon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Gomamon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niño: Joe</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Gomamon" data-stage="1" data-img="../../images/gomamon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Gomamon</span></button>
+            <button type="button" data-form="Ikkakumon" data-stage="2" data-img="../../images/ikkakumon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Ikkakumon</span></button>
+            <button type="button" data-form="Zudomon" data-stage="3" data-img="../../images/zudomon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · Zudomon</span></button>
+            <button type="button" data-form="Vikemon" data-stage="4" data-img="../../images/zudomon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · Vikemon</span></button>
+            <button type="button" data-form="Plesiomon" data-stage="5" data-img="../../images/ikkakumon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Plesiomon</span></button>
+          </div>
+        </article>
+
+        <!-- 7. T.K. -> Patamon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="T.K.">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrC-NgKib0dw4YvQT_3OBz48Wm4RTafCAyZYc14RPtICKKK8-fe5eUmwLzdBgQkxZWL2M2nqznoUb3hGRRMTP612719MVJYQTGRI3WlKRxgZXzXclxwV-1DGwySbyWPOjXrQDvcIdry7rNgCgJwpo-fidBuiIDZIUZY2btaTFFglSBpU0jEoSOGB9GJO-jeTfHCHiFINYl_C5W05QZkuSHcV49pBcsnr5hrmAO_-t8opYrYTq-UURYtyKA" alt="Patamon de T.K." class="partner-img w-full h-full object-cover block" data-stitch-original-src="2dfa17688f6d58a2===../../images/patamon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Patamon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niño: T.K.</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Patamon" data-stage="1" data-img="../../images/patamon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Patamon</span></button>
+            <button type="button" data-form="Angemon" data-stage="2" data-img="../../images/angemon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Angemon</span></button>
+            <button type="button" data-form="MagnaAngemon" data-stage="3" data-img="../../images/angemon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · MagnaAngemon</span></button>
+            <button type="button" data-form="Seraphimon" data-stage="4" data-img="../../images/angemon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · Seraphimon</span></button>
+            <button type="button" data-form="Goldramon" data-stage="5" data-img="../../images/angemon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Goldramon</span></button>
+          </div>
+        </article>
+
+        <!-- 8. Kari -> Gatomon -->
+        <article class="partner-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm" data-tamer="Kari">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrCXrimLg9jEIQ98kLjaTcmOyDJsITIAxHuXCOwXh3pGdvrZtxmoLg3MZPO7NThWnpsL2a_YsRaWVW3yawzRJ-rkqplVFaOwX9mYo-CVheFy7ZHXgDh7VUlI9xOnpyg6QIyBxBtx5rgZpZKOcQ5SSVHkLWGRZ7yiPE2K1gZebPCTVWQTWEgji-c6VqzGd4zpy2y-b49zol_av4gHKPsChS8624EHCbNrqfs0yfI1WgMdlWFYn5fCID63" alt="Gatomon de Kari" class="partner-img w-full h-full object-cover block" data-stitch-original-src="e52bec574326ec2b===../../images/gatomon_partner.jpg">
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h2 data-design-text-token="title-md" class="partner-name font-title text-title-md text-light-on-surface">Gatomon</h2>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Niña: Kari</p>
+              </div>
+            </div>
+            <span data-design-text-token="mono-md" class="partner-stage shrink-0 px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm font-mono text-mono-md text-light-on-surface tabular-nums">FASE 1</span>
+          </div>
+          <div class="grid grid-cols-2 gap-gutter-xs">
+            <button type="button" data-form="Gatomon" data-stage="1" data-img="../../images/gatomon_partner.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">1 · Gatomon</span></button>
+            <button type="button" data-form="Angewomon" data-stage="2" data-img="../../images/angewomon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">2 · Angewomon</span></button>
+            <button type="button" data-form="Magnadramon" data-stage="3" data-img="../../images/angewomon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">3 · Magnadramon</span></button>
+            <button type="button" data-form="Ophanimon" data-stage="4" data-img="../../images/angewomon_evo.jpg" class="evo-btn px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">4 · Ophanimon</span></button>
+            <button type="button" data-form="Mastemon" data-stage="5" data-img="../../images/angewomon_evo.jpg" class="evo-btn col-span-2 px-gutter-sm py-gutter-xs bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5"><span data-design-text-token="label-sm">5 · Mastemon</span></button>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- Bottom Evolution Status Banner -->
+    <footer aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+      <p id="digi-status" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+        Toca el botón de cualquier evolución para transformar.
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var statusEl = document.getElementById('digi-status');
+      var muted = false;
+
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      document.querySelectorAll('.partner-card').forEach(function (card) {
+        var nameEl = card.querySelector('.partner-name');
+        var stageEl = card.querySelector('.partner-stage');
+        var imgEl = card.querySelector('.partner-img');
+        var tamer = card.getAttribute('data-tamer');
+        var buttons = card.querySelectorAll('.evo-btn');
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var form = btn.getAttribute('data-form');
+            var stage = btn.getAttribute('data-stage');
+            var imgSrc = btn.getAttribute('data-img');
+
+            buttons.forEach(function (b) {
+              b.classList.remove('bg-light-primary', 'text-light-on-primary');
+              b.classList.add('bg-light-surface-container-low', 'text-light-on-surface');
+            });
+            btn.classList.remove('bg-light-surface-container-low', 'text-light-on-surface');
+            btn.classList.add('bg-light-primary', 'text-light-on-primary');
+
+            if (imgEl && imgSrc) {
+              imgEl.src = imgSrc;
+              imgEl.alt = form + ' de ' + tamer;
+            }
+            nameEl.textContent = form;
+            stageEl.textContent = 'FASE ' + stage;
+            statusEl.textContent = tamer + ': ¡Transformado en ' + form + ' (FASE ' + stage + ')!';
+          });
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

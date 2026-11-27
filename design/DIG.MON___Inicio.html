@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Inicio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow {
+      box-shadow: 4px 4px 0px #1A1600;
+    }
+    .arcade-shadow-lg {
+      box-shadow: 6px 6px 0px #1A1600;
+    }
+    .arcade-shadow:active, .arcade-shadow-lg:active {
+      box-shadow: 2px 2px 0px #1A1600;
+    }
+    .arcade-title-shadow {
+      text-shadow: 4px 4px 0px #FF6B00;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-lg flex flex-col justify-between gap-gutter-lg">
+
+    <!-- Top utility bar -->
+    <header class="flex items-center justify-between">
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs bg-light-surface-container border-2 border-light-outline rounded-sm">
+        <span class="font-mono text-mono-md text-light-on-surface tabular-nums" data-design-text-token="mono-md">VER 1.0</span>
+      </div>
+
+      <!-- COMPONENT: button-icon -->
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-12 h-12 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Top Icon Menu -->
+    <nav aria-label="Menú principal" class="grid grid-cols-6 gap-gutter-xs">
+      <a href="../inicio/Inicio.html" aria-label="Inicio" title="Inicio" class="inline-flex items-center justify-center h-10 bg-light-primary text-light-on-primary border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">home</span></a>
+      <a href="../jugar/Jugar.html" aria-label="Jugar" title="Jugar" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span></a>
+      <a href="../batalla/PantallaDeBatalla.html" aria-label="Batalla" title="Batalla" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">swords</span></a>
+      <a href="../companeros/CompanerosDigi.html" aria-label="Compañeros" title="Compañeros" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">groups</span></a>
+      <a href="../inventario/InventarioDeObjetos.html" aria-label="Inventario" title="Inventario" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">backpack</span></a>
+      <a href="../villanos/VillanosTemporada1.html" aria-label="Villanos" title="Villanos" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">skull</span></a>
+    </nav>
+
+    <!-- Center hero: Title + Tai & Gabumon -->
+    <main class="flex-1 flex flex-col items-center justify-center gap-gutter-lg text-center">
+      <div class="flex flex-col items-center gap-gutter-sm">
+        <!-- COMPONENT: typography-display -->
+        <h1 data-component-id="typography-display" data-component-type="typography" data-component-variant="display" data-design-text-token="display-lg-mobile" class="font-display text-display-lg-mobile md:text-display-lg text-light-on-surface arcade-title-shadow tracking-wider text-balance">DIG.MON</h1>
+
+        <!-- COMPONENT: typography-body -->
+        <p data-component-id="typography-body" data-component-type="typography" data-component-variant="body" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">Aventura Arcade · Tai &amp; Agumon</p>
+      </div>
+
+      <!-- Center image frame -->
+      <figure class="w-full max-w-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-lg p-gutter-sm">
+        <div class="overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCsvhZ1Rb7AxxB3I4E_MH0tFD2Qka9SIoKXadNvSpfhujCrARUHIPVCmiSCn-w3DEN-MUwaMLK5N4QL7IRYL_Xd8FI3rgroY2ymKs56HYtGNHdx7yClZDHJk1w7D5_VX7MedbjdCWnYWLZOP9TsOJSyQeoZefbemDhA77w5quqYXJRKgBBHmQlAziO4UTQNn3iWnzicRezzTy9EcYCtk3zpEpaHPKyVjrnwKi31IjqQPrZR1pagEHmreA" alt="Tai y Agumon listos para la aventura en DIG.MON" class="w-full aspect-square max-h-56 object-cover block" data-stitch-original-src="9add8426d86b2c1c===../../images/tai_agumon_hero.jpg">
+        </div>
+        <figcaption class="pt-gutter-xs flex items-center justify-between px-gutter-xs">
+          <span class="font-label text-label-sm text-light-on-surface uppercase" data-design-text-token="label-sm">TAI &amp; AGUMON</span>
+          <span class="font-mono text-mono-md text-light-on-surface-variant tabular-nums" data-design-text-token="mono-md">NV. 01</span>
+        </figcaption>
+      </figure>
+    </main>
+
+    <!-- Login Form + Primary Action -->
+    <footer class="flex flex-col items-center gap-gutter-sm pb-gutter-xs w-full">
+      <form id="login-form" class="w-full max-w-xs flex flex-col gap-gutter-sm" novalidate>
+        <div class="flex flex-col gap-gutter-xs text-left">
+          <label for="username" data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface uppercase">Usuario</label>
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="Tai_01" class="w-full px-gutter-md py-gutter-sm bg-light-surface-container text-light-on-surface placeholder:text-light-on-surface-variant border-4 border-light-outline rounded font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
+        </div>
+
+        <div class="flex flex-col gap-gutter-xs text-left">
+          <label for="password" data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface uppercase">Contraseña</label>
+          <div class="relative flex items-center">
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" class="w-full pl-gutter-md pr-12 py-gutter-sm bg-light-surface-container text-light-on-surface placeholder:text-light-on-surface-variant border-4 border-light-outline rounded font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
+            <button id="toggle-password" type="button" aria-label="Mostrar contraseña" class="absolute right-2 inline-flex items-center justify-center w-8 h-8 text-light-on-surface-variant hover:text-light-on-surface focus-visible:outline-none">
+              <span id="password-eye" class="material-symbols-outlined">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- COMPONENT: button-with-icon -->
+        <button id="start-button" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" type="submit" class="w-full mt-gutter-xs inline-flex items-center justify-center gap-gutter-sm px-gutter-xl py-gutter-md bg-light-primary text-light-on-primary border-4 border-light-outline rounded arcade-shadow-lg font-headline text-label-lg uppercase tracking-wider transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+          <span class="material-symbols-outlined" aria-hidden="true">login</span>
+          <span data-design-text-token="label-lg">ENTRAR</span>
+        </button>
+      </form>
+
+      <p id="start-status" class="font-mono text-mono-md text-light-on-surface-variant text-center min-h-5" data-design-text-token="mono-md">
+        INGRESA USUARIO Y CONTRASEÑA
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var loginForm = document.getElementById('login-form');
+      var usernameInput = document.getElementById('username');
+      var passwordInput = document.getElementById('password');
+      var togglePasswordBtn = document.getElementById('toggle-password');
+      var passwordEye = document.getElementById('password-eye');
+      var startStatus = document.getElementById('start-status');
+      var muted = false;
+
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+          soundBtn.setAttribute('aria-label', muted ? 'Activar sonido' : 'Silenciar sonido');
+        });
+      }
+
+      if (togglePasswordBtn && passwordInput && passwordEye) {
+        togglePasswordBtn.addEventListener('click', function () {
+          var isHidden = passwordInput.type === 'password';
+          passwordInput.type = isHidden ? 'text' : 'password';
+          passwordEye.textContent = isHidden ? 'visibility_off' : 'visibility';
+          togglePasswordBtn.setAttribute('aria-label', isHidden ? 'Ocultar contraseña' : 'Mostrar contraseña');
+        });
+      }
+
+      if (loginForm && startStatus) {
+        loginForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var user = usernameInput ? usernameInput.value.trim() : '';
+          var pass = passwordInput ? passwordInput.value.trim() : '';
+          if (!user || !pass) {
+            startStatus.textContent = 'COMPLETA USUARIO Y CONTRASEÑA';
+            return;
+          }
+          startStatus.textContent = 'BIENVENIDO, ' + user.toUpperCase() + '!';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

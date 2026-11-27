@@ -1,0 +1,6 @@
+{
+  "name": "DIG.MON — Aventura Arcade",
+  "description": "Juego arcade interactivo de Digimon Adventure con batallas por turnos, digievoluciones, inventario de objetos, emblemas y villanos de la Temporada 1.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

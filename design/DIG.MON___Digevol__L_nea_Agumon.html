@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Digevol: Línea Agumon</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow { box-shadow: 4px 4px 0px #1A1600; }
+    .arcade-shadow-sm { box-shadow: 3px 3px 0px #1A1600; }
+    .arcade-shadow:active, .arcade-shadow-sm:active { box-shadow: 1px 1px 0px #1A1600; }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual header -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <a href="../batalla/PantallaDeBatalla.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a batalla" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">DIGEVOL · AGUMON</span>
+      </div>
+
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Main Agumon Full Line -->
+    <main class="flex-1 flex flex-col gap-gutter-md">
+      <div class="flex flex-col gap-gutter-xs">
+        <h1 data-design-text-token="headline-lg-mobile" class="font-headline text-headline-lg-mobile text-light-on-surface uppercase">LÍNEA AGUMON</h1>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">
+          Todos los nombres y evoluciones de Agumon. Toca uno para verlo.
+        </p>
+      </div>
+
+      <!-- Niños Elegidos: Tai, Mimi, Sora -->
+      <section aria-label="Niños elegidos" class="grid grid-cols-3 gap-gutter-xs">
+        <button type="button" data-kid="Tai" data-partner="Agumon" class="kid-btn bg-light-primary text-light-on-primary border-4 border-light-outline rounded arcade-shadow-sm p-gutter-xs flex flex-col items-center gap-gutter-xs">
+          <div class="w-14 h-14 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBC9X0Ya2-RlO9n1J3dx5C-PjGhkC_devC6W-kZqY-3qMsn1qD5axZAjGP65qeyo8bJahwnDpx6RsbsRlAZBg8emXICpT0YeDg9ENJp-mAdldcnL-vV0CMyMfiVD6Ry2tfYlqRrySrrVZ7_0FftYwjRz5YTx5yIztdeATsl_nXiS4-z5MHJfYYu0DeU3066oVDL78THMQb69DLO_zXUO2lFh8TOE-k_L90elHLtJE6p3w" alt="Tai Kamiya" class="w-full h-full object-cover block" data-stitch-original-src="67609792881d2000===../../images/tai_kid.jpg">
+          </div>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase">Tai</span>
+        </button>
+
+        <button type="button" data-kid="Mimi" data-partner="Palmon" class="kid-btn bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm p-gutter-xs flex flex-col items-center gap-gutter-xs">
+          <div class="w-14 h-14 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCiaUPUchI_mHAPPjQZe0LUK_ZoOUTXwSBapst3rZsrt2xo-BbmPOv6ysgkUfRw1fAcf2eSHKDG5x5IYztEmVa_jMVUjTyISLH0jSYfUqIW4AWDVhC5qSr2YoCpzeWvC_j_zYtI3YQzvH-bOkSf9g3c8PIRzy4cCVCgz2XGxubTHtzfvpd_JHuEnS7MsnGEoaN0cy_BDqITsfuEvPMooOdbNgyvNJro5FLWmqHrZhAB4MU" alt="Mimi Tachikawa" class="w-full h-full object-cover block" data-stitch-original-src="82f10198e9b0cec9===../../images/mimi_kid.jpg">
+          </div>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase">Mimi</span>
+        </button>
+
+        <button type="button" data-kid="Sora" data-partner="Biyomon" class="kid-btn bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm p-gutter-xs flex flex-col items-center gap-gutter-xs">
+          <div class="w-14 h-14 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCHcw2GY1kxwNILKLLA46kqe0lYg2wZ-iHZHzaxLzYuMu0lYr8ts8IGg7JwFqM63jwFr_9nqFnijVQDQuh7TFXf5BTVvHp5oEQcoL-5DascqiGwm8AdbZ6e2paHscwt-MOyU_dz5IaekqZuo2tG2__vFXfAzcJLLIs4E2hVKL3GV3TydtFPOG4Pq0-IvWsJlvgdMwPtYPuIYRAVIelN679YRdBO_dfbCjKFpxACKk3jVA" alt="Sora Takenouchi" class="w-full h-full object-cover block" data-stitch-original-src="ce892a5217c4a564===../../images/sora_kid.jpg">
+          </div>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm uppercase">Sora</span>
+        </button>
+      </section>
+
+      <!-- Active Preview Card -->
+      <article class="bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex items-center gap-gutter-md">
+        <div class="w-20 h-20 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+          <img id="evo-preview-img" src="https://lh3.googleusercontent.com/aida/ALJJyrC-zxDL2LR31v4ywKjA-zs8kB9fv0i_PjqYFso-7H6GiK2_a0DdREl_z_Idy-lIllqTzCe5GPB6tbmpy5DuF4Kk-1lvm454iT34pnc7NG4K77ZKpf3Kg3KZGkOVGXCFzS9nbXIebWRJCG9uKvig51kCURQSMMlhQnzuu_i4AdMzQCLMGcJBr7-VnLcmBUqlijJBioqwtZdjpm78V7cp-CKnM1zSXIrI0PRNnynihRISPOdrDaK_IO8" alt="Agumon" class="w-full h-full object-cover block" data-stitch-original-src="ac908132f6575915===../../images/agumon_partner.jpg">
+        </div>
+        <div class="flex flex-col gap-gutter-xs min-w-0">
+          <span id="evo-stage-badge" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-primary uppercase tabular-nums">NOVATO · NV. 03</span>
+          <h2 id="evo-name" data-design-text-token="title-lg" class="font-headline text-title-lg text-light-on-surface">AGUMON</h2>
+          <p id="evo-attack" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Ataque: Llama Bebé</p>
+        </div>
+      </article>
+
+      <!-- All Agumon Forms Grid -->
+      <section class="grid grid-cols-2 gap-gutter-sm">
+        <button type="button" data-name="BOTAMON" data-stage="BEBÉ I · NV. 01" data-atk="Burbujas Ácidas" data-img="../../images/agumon_partner.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">1. Botamon</span>
+        </button>
+        <button type="button" data-name="KOROMON" data-stage="BEBÉ II · NV. 02" data-atk="Burbuja de Fuego" data-img="../../images/agumon_partner.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">2. Koromon</span>
+        </button>
+        <button type="button" data-name="AGUMON" data-stage="NOVATO · NV. 03" data-atk="Llama Bebé" data-img="../../images/agumon_partner.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-primary text-light-on-primary border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">3. Agumon</span>
+        </button>
+        <button type="button" data-name="GREYMON" data-stage="CAMPEÓN · NV. 05" data-atk="Mega Llama" data-img="../../images/greymon_evo.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">4. Greymon</span>
+        </button>
+        <button type="button" data-name="METALGREYMON" data-stage="ULTRA · NV. 08" data-atk="Giga Destructor" data-img="../../images/metalgreymon_evo.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">5. MetalGreymon</span>
+        </button>
+        <button type="button" data-name="SKULLGREYMON" data-stage="ULTRA OSCURO · NV. 08" data-atk="Disparo Cero" data-img="../../images/greymon_evo.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">6. SkullGreymon</span>
+        </button>
+        <button type="button" data-name="WARGREYMON" data-stage="MEGA · NV. 12" data-atk="Fuerza Terra" data-img="../../images/wargreymon_evo.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">7. WarGreymon</span>
+        </button>
+        <button type="button" data-name="BLITZGREYMON" data-stage="MEGA · NV. 12" data-atk="Plasma Estaca" data-img="../../images/wargreymon_evo.jpg" class="agumon-form px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-left transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">8. BlitzGreymon</span>
+        </button>
+        <button type="button" data-name="OMNIMON" data-stage="FUSIÓN · NV. 15" data-atk="Espada Trascendente" data-img="../../images/omnimon_evo.jpg" class="agumon-form col-span-2 px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">9. Omnimon (Agumon + Gabumon)</span>
+        </button>
+      </section>
+    </main>
+
+    <!-- Status Footer -->
+    <footer aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+      <p id="digevol-status" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+        Agumon seleccionado. Toca otra evolución para cambiar.
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var muted = false;
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      var previewImg = document.getElementById('evo-preview-img');
+      var stageBadge = document.getElementById('evo-stage-badge');
+      var nameEl = document.getElementById('evo-name');
+      var attackEl = document.getElementById('evo-attack');
+      var statusEl = document.getElementById('digevol-status');
+      var buttons = document.querySelectorAll('.agumon-form');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) {
+            b.classList.remove('bg-light-primary', 'text-light-on-primary');
+            b.classList.add('bg-light-surface-container', 'text-light-on-surface');
+          });
+          btn.classList.remove('bg-light-surface-container', 'text-light-on-surface');
+          btn.classList.add('bg-light-primary', 'text-light-on-primary');
+
+          var name = btn.getAttribute('data-name');
+          var stage = btn.getAttribute('data-stage');
+          var atk = btn.getAttribute('data-atk');
+          var img = btn.getAttribute('data-img');
+
+          if (previewImg && img) {
+            previewImg.src = img;
+            previewImg.alt = name;
+          }
+          stageBadge.textContent = stage;
+          nameEl.textContent = name;
+          attackEl.textContent = 'Ataque: ' + atk;
+          statusEl.textContent = '¡Digievolución lista: ' + name + '!';
+        });
+      });
+
+      var kidBtns = document.querySelectorAll('.kid-btn');
+      kidBtns.forEach(function (kbtn) {
+        kbtn.addEventListener('click', function () {
+          kidBtns.forEach(function (b) {
+            b.classList.remove('bg-light-primary', 'text-light-on-primary');
+            b.classList.add('bg-light-surface-container', 'text-light-on-surface');
+          });
+          kbtn.classList.remove('bg-light-surface-container', 'text-light-on-surface');
+          kbtn.classList.add('bg-light-primary', 'text-light-on-primary');
+          var kid = kbtn.getAttribute('data-kid');
+          var partner = kbtn.getAttribute('data-partner');
+          statusEl.textContent = 'Niño elegido: ' + kid + ' (Compañero: ' + partner + ').';
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

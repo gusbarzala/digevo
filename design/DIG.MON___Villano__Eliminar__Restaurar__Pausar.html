@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Villano: Eliminar, Restaurar, Pausar</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow { box-shadow: 4px 4px 0px #1A1600; }
+    .arcade-shadow-sm { box-shadow: 3px 3px 0px #1A1600; }
+    .arcade-shadow:active, .arcade-shadow-sm:active { box-shadow: 1px 1px 0px #1A1600; }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual header -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <a href="../villanos/VillanosTemporada1.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a villanos" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">PODER · VILLANO</span>
+      </div>
+
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Main Villain Powers Content -->
+    <main class="flex-1 flex flex-col gap-gutter-md">
+      <div class="flex flex-col gap-gutter-xs">
+        <h1 data-design-text-token="headline-lg-mobile" class="font-headline text-headline-lg-mobile text-light-on-surface uppercase">CONTROL VILLANO</h1>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">
+          Myotismon y Mujer Murciélago controlan a los monstruos digitales.
+        </p>
+      </div>
+
+      <!-- Villain Selector Pills -->
+      <nav aria-label="Villanos" class="flex flex-wrap gap-gutter-xs">
+        <button type="button" data-vname="Myotismon" data-vsub="Elimina a Pumpkinmon y Gotsumon" data-vlevel="NV. 08" data-vimg="../../images/myotismon_battle.jpg" data-targets="Pumpkinmon,Gotsumon,Wizardmon" class="villain-tab px-gutter-sm py-gutter-xs bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm">Myotismon</button>
+        <button type="button" data-vname="Devimon" data-vsub="Eliminado por Angemon" data-vlevel="NV. 03" data-vimg="../../images/devimon_battle.jpg" data-targets="Angemon,Leomon,Ogremon" class="villain-tab px-gutter-sm py-gutter-xs bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm">Devimon</button>
+        <button type="button" data-vname="Etemon" data-vsub="Eliminado por MetalGreymon" data-vlevel="NV. 05" data-vimg="../../images/etemon_battle.jpg" data-targets="MetalGreymon,Datamon,Piximon" class="villain-tab px-gutter-sm py-gutter-xs bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm">Etemon</button>
+        <button type="button" data-vname="Amos Oscuros" data-vsub="MetalSeadramon, Puppetmon, Machinedramon y Piedmon" data-vlevel="NV. 12" data-vimg="../../images/amos_oscuros_battle.jpg" data-targets="WarGreymon,MetalGarurumon,MagnaAngemon" class="villain-tab px-gutter-sm py-gutter-xs bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm">Amos Oscuros</button>
+        <button type="button" data-vname="Apocalymon" data-vsub="Eliminó las joyas; derrotado por los niños de Digimon" data-vlevel="NV. 15" data-vimg="../../images/apocalymon_battle.jpg" data-targets="Joyas Digimon,Niños Elegidos,Mundo Digital" class="villain-tab px-gutter-sm py-gutter-xs bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm">Apocalymon</button>
+      </nav>
+
+      <!-- Villain Duo Banner -->
+      <article class="bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-sm flex items-center justify-between gap-gutter-sm">
+        <div class="flex items-center gap-gutter-sm min-w-0">
+          <div class="w-12 h-12 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+            <img id="active-villain-img" src="https://lh3.googleusercontent.com/aida/ALJJyrAKjuxSdNeEj3wQ-xETH0WxmWxVb3Zs3QrQAxFz0yVOU-A6jme2r2QKLAnzxYIl62bf2QpPz21sPHGB8eCmTUz3xEbaCx7e6Okls7vZ_St8hX5MihUTVe6HZEp-xMfnQbcnVL6N4ysEi9lbiBC1xuzoajsk0j5IN_eR-qHAWxCIWCc3ritFQ8EJzCJv84iFB6wYZGKXyHxK3L9bwlppz5xyzfssbwgsLkayyTY_3LZ8Z4iPCSdbEC0XsQ" alt="Myotismon" class="w-full h-full object-cover block" data-stitch-original-src="90a54b56583a4d96===../../images/myotismon_battle.jpg">
+          </div>
+          <div class="flex flex-col min-w-0">
+            <h2 id="active-villain-name" data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface">Myotismon</h2>
+            <p id="active-villain-sub" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Elimina a Pumpkinmon y Gotsumon</p>
+          </div>
+        </div>
+        <div class="px-gutter-sm py-gutter-xs bg-light-surface-container-low border-2 border-light-outline rounded-sm shrink-0">
+          <span id="active-villain-level" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface uppercase">NV. 08</span>
+        </div>
+      </article>
+
+      <!-- Target Digital Monsters List -->
+      <section class="flex flex-col gap-gutter-xs" aria-label="Monstruos digitales">
+        <article data-monster="Pumpkinmon" class="monster-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm flex items-center justify-between gap-gutter-sm">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <div class="w-11 h-11 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDbjCIw6K_hLkFk5LkPTPLmOxmsTu26K2zdrxO_F7rhY1l0MJb8v2MxzajuMzNaY8yw4NOWXbkIIU6V4Kl_QdgfGxeXjkgFtx74JPit5PSAFk2E5Vcz1kgBItIFL-ZoyhT7iKz3Jzb9PmIVYVd1Nj5X0zcyDFrXPxcyHBEfbtENw9T9b4o9EAmQDajEVuhg3L_4TTqGnQR2mfaMtn7eflQf9wGGsKZWqLkEkrZAZWe_eSuSvmssbQ_NdG3G6Q" alt="Pumpkinmon" class="w-full h-full object-cover block" data-stitch-original-src="2c367243f0f3c8fa===../../images/pumpkinmon_monster.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="monster-name font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Pumpkinmon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">NV. 06 · Datos</span>
+            </div>
+          </div>
+          <span class="monster-badge shrink-0 px-gutter-sm py-gutter-xs bg-light-primary-container text-light-on-primary-container border-2 border-light-outline rounded-sm font-mono text-mono-md uppercase" data-design-text-token="mono-md">ACTIVO</span>
+        </article>
+
+        <article data-monster="Gotsumon" class="monster-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm flex items-center justify-between gap-gutter-sm">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <div class="w-11 h-11 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAfMfbt7nLMvoQ5O-aNXSkX2olmNF7Gql-WkQg1xnIbr7__Crt8H2R9fERaT9pBS3SuugCPHM_aogwtPMvq6hfqeKxW4DFregAhrC1RRSvbuE7NSDzfVlc4XcnBvL0FXXajSJmJB5w3RKsGwCqkppocPLur0RyNbHgB2N7r1csnRSEHc9BmxrWL6mmN3sEdu68MmnISEc66y6ckSRJHwKcB3jOZolm6_VOk_Psp_3XdJzlJWwN3ETXBQ8" alt="Gotsumon" class="w-full h-full object-cover block" data-stitch-original-src="78d9a527401ea210===../../images/gotsumon_monster.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="monster-name font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Gotsumon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">NV. 05 · Roca</span>
+            </div>
+          </div>
+          <span class="monster-badge shrink-0 px-gutter-sm py-gutter-xs bg-light-primary-container text-light-on-primary-container border-2 border-light-outline rounded-sm font-mono text-mono-md uppercase" data-design-text-token="mono-md">ACTIVO</span>
+        </article>
+
+        <article data-monster="Wizardmon" class="monster-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm flex items-center justify-between gap-gutter-sm">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <div class="w-11 h-11 shrink-0 overflow-hidden rounded-sm border-2 border-light-outline bg-light-surface">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAdDfW0MIHbxhEq3LTvAg7R8JYzdh199JFKLli3T4pr3bOHAKpM7dK14ZA58k-mp6EmVFUSfn1SncoyKPzLS-yh1RkPH3yqHTL4HpO0oBws-b2MsqBcQldZDF1ODvrdigTBD7MAfc1IxUJv8alD1Xb5s6ewuQ0RTnGWlmyZzDUZrkMeAc_tBRSlSKrxSzxwur8WP7wBfDIPlxqDQJODVG1wRJ7X4L0oH4HuF-AbAFX7n1qJY75pv6dnmG4R" alt="Wizardmon" class="w-full h-full object-cover block" data-stitch-original-src="9fe8ebcefb2608a5===../../images/wizardmon_monster.jpg">
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="monster-name font-title text-title-md text-light-on-surface" data-design-text-token="title-md">Wizardmon</span>
+              <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">NV. 07 · Magia</span>
+            </div>
+          </div>
+          <span class="monster-badge shrink-0 px-gutter-sm py-gutter-xs bg-light-primary-container text-light-on-primary-container border-2 border-light-outline rounded-sm font-mono text-mono-md uppercase" data-design-text-token="mono-md">ACTIVO</span>
+        </article>
+      </section>
+
+      <!-- 3 Villain Power Buttons: Eliminar, Restaurar, Pausar -->
+      <section class="flex flex-col gap-gutter-sm">
+        <button id="btn-eliminar" type="button" class="w-full inline-flex items-center justify-between gap-gutter-sm px-gutter-md py-gutter-sm bg-light-error text-light-on-error border-4 border-light-outline rounded arcade-shadow transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span class="inline-flex items-center gap-gutter-sm">
+            <span class="material-symbols-outlined" aria-hidden="true">delete_forever</span>
+            <span data-design-text-token="label-lg" class="font-headline text-label-lg uppercase">ELIMINAR</span>
+          </span>
+          <span id="eliminar-sub" data-design-text-token="label-sm" class="font-label text-label-sm">Myotismon · Pumpkinmon y Gotsumon</span>
+        </button>
+
+        <button id="btn-restaurar" type="button" class="w-full inline-flex items-center justify-between gap-gutter-sm px-gutter-md py-gutter-sm bg-light-primary text-light-on-primary border-4 border-light-outline rounded arcade-shadow transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span class="inline-flex items-center gap-gutter-sm">
+            <span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>
+            <span data-design-text-token="label-lg" class="font-headline text-label-lg uppercase">RESTAURAR</span>
+          </span>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm">Mujer Murciélago (LadyDevimon)</span>
+        </button>
+
+        <button id="btn-pausar" type="button" class="w-full inline-flex items-center justify-between gap-gutter-sm px-gutter-md py-gutter-sm bg-light-secondary text-light-on-secondary border-4 border-light-outline rounded arcade-shadow transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span class="inline-flex items-center gap-gutter-sm">
+            <span class="material-symbols-outlined" aria-hidden="true">ac_unit</span>
+            <span data-design-text-token="label-lg" class="font-headline text-label-lg uppercase">PAUSAR</span>
+          </span>
+          <span data-design-text-token="label-sm" class="font-label text-label-sm">Congelar monstruos digitales</span>
+        </button>
+      </section>
+
+      <!-- Registro de Derrotas de Villanos -->
+      <section aria-label="Registro de derrotas" class="bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col gap-gutter-sm">
+        <div class="flex items-center justify-between gap-gutter-xs border-b-2 border-light-outline pb-gutter-xs">
+          <h2 data-design-text-token="label-lg" class="font-headline text-label-lg text-light-on-surface uppercase">DERROTAS</h2>
+          <span data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface-variant uppercase">TEMP. 1</span>
+        </div>
+
+        <ul class="flex flex-col gap-gutter-xs font-body text-body-md text-light-on-surface">
+          <li class="bg-light-surface-container-low border-2 border-light-outline rounded-sm px-gutter-sm py-gutter-xs">
+            <span class="font-title font-bold">Devimon:</span> Eliminado por Angemon.
+          </li>
+          <li class="bg-light-surface-container-low border-2 border-light-outline rounded-sm px-gutter-sm py-gutter-xs">
+            <span class="font-title font-bold">Etemon:</span> Eliminado por MetalGreymon.
+          </li>
+          <li class="bg-light-surface-container-low border-2 border-light-outline rounded-sm px-gutter-sm py-gutter-xs flex flex-col gap-1">
+            <span class="font-title font-bold uppercase">Amos Oscuros:</span>
+            <span>• <span class="font-bold">MetalSeadramon:</span> Eliminado por WarGreymon en el océano.</span>
+            <span>• <span class="font-bold">Puppetmon (Pinochimon):</span> Derrotado por MetalGarurumon.</span>
+            <span>• <span class="font-bold">Machinedramon (Mugendramon):</span> Eliminado por WarGreymon.</span>
+            <span>• <span class="font-bold">Piedmon:</span> Derrotado por WarGreymon y MetalGarurumon tras ser enviado al portal de la oscuridad por Angemon y MagnaAngemon.</span>
+          </li>
+          <li class="bg-light-surface-container-low border-2 border-light-outline rounded-sm px-gutter-sm py-gutter-xs">
+            <span class="font-title font-bold">Apocalymon:</span> Eliminó las joyas de Digimon; lograron recuperarlas y es derrotado por los niños de Digimon.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Status Footer -->
+    <footer aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+      <p id="villain-power-status" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+        Elige un villano y pulsa ELIMINAR, RESTAURAR o PAUSAR.
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var muted = false;
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      var statusEl = document.getElementById('villain-power-status');
+      var cards = document.querySelectorAll('.monster-card');
+      var villainTabs = document.querySelectorAll('.villain-tab');
+      var activeNameEl = document.getElementById('active-villain-name');
+      var activeSubEl = document.getElementById('active-villain-sub');
+      var activeLevelEl = document.getElementById('active-villain-level');
+      var activeImgEl = document.getElementById('active-villain-img');
+      var eliminarSubEl = document.getElementById('eliminar-sub');
+      var currentVillain = 'Myotismon';
+      var currentTargets = ['Pumpkinmon', 'Gotsumon', 'Wizardmon'];
+
+      function setCardState(card, state) {
+        var nameEl = card.querySelector('.monster-name');
+        var badgeEl = card.querySelector('.monster-badge');
+        card.classList.remove('opacity-60');
+        nameEl.classList.remove('line-through');
+        badgeEl.classList.remove(
+          'bg-light-primary-container', 'text-light-on-primary-container',
+          'bg-light-error', 'text-light-on-error',
+          'bg-light-secondary-container', 'text-light-on-secondary-container'
+        );
+
+        if (state === 'eliminado') {
+          card.classList.add('opacity-60');
+          nameEl.classList.add('line-through');
+          badgeEl.classList.add('bg-light-error', 'text-light-on-error');
+          badgeEl.textContent = 'ELIMINADO';
+        } else if (state === 'congelado') {
+          badgeEl.classList.add('bg-light-secondary-container', 'text-light-on-secondary-container');
+          badgeEl.textContent = 'CONGELADO';
+        } else {
+          badgeEl.classList.add('bg-light-primary-container', 'text-light-on-primary-container');
+          badgeEl.textContent = 'ACTIVO';
+        }
+      }
+
+      villainTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          villainTabs.forEach(function (t) {
+            t.classList.remove('bg-light-primary', 'text-light-on-primary');
+            t.classList.add('bg-light-surface-container', 'text-light-on-surface');
+          });
+          tab.classList.remove('bg-light-surface-container', 'text-light-on-surface');
+          tab.classList.add('bg-light-primary', 'text-light-on-primary');
+
+          currentVillain = tab.getAttribute('data-vname');
+          var vsub = tab.getAttribute('data-vsub');
+          var vlevel = tab.getAttribute('data-vlevel');
+          var vimg = tab.getAttribute('data-vimg');
+          currentTargets = (tab.getAttribute('data-targets') || '').split(',');
+
+          activeNameEl.textContent = currentVillain;
+          activeSubEl.textContent = vsub;
+          activeLevelEl.textContent = vlevel;
+          activeImgEl.src = vimg;
+          activeImgEl.alt = currentVillain;
+          eliminarSubEl.textContent = currentVillain + ' · ' + currentTargets.slice(0, 2).join(' y ');
+
+          cards.forEach(function (card, idx) {
+            var targetName = currentTargets[idx] || 'Digimon';
+            card.setAttribute('data-monster', targetName);
+            card.querySelector('.monster-name').textContent = targetName;
+            setCardState(card, 'activo');
+          });
+          statusEl.textContent = currentVillain + ' seleccionado: ' + vsub + '.';
+        });
+      });
+
+      document.getElementById('btn-eliminar').addEventListener('click', function () {
+        cards.forEach(function (card, idx) {
+          if (idx < 2) {
+            setCardState(card, 'eliminado');
+          }
+        });
+        statusEl.textContent = '¡' + currentVillain + ' usó ELIMINAR contra ' + currentTargets[0] + ' y ' + currentTargets[1] + '!';
+      });
+
+      document.getElementById('btn-restaurar').addEventListener('click', function () {
+        cards.forEach(function (card) {
+          setCardState(card, 'activo');
+        });
+        statusEl.textContent = '¡Mujer Murciélago (LadyDevimon) restauró a todos los monstruos!';
+      });
+
+      document.getElementById('btn-pausar').addEventListener('click', function () {
+        cards.forEach(function (card) {
+          var badge = card.querySelector('.monster-badge').textContent;
+          if (badge !== 'ELIMINADO') {
+            setCardState(card, 'congelado');
+          }
+        });
+        statusEl.textContent = '¡Monstruos digitales congelados y pausados!';
+      });
+    })();
+  </script>
+
+
+</body></html>

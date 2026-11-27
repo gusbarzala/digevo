@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Inventario de objetos</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow {
+      box-shadow: 4px 4px 0px #1A1600;
+    }
+    .arcade-shadow-sm {
+      box-shadow: 3px 3px 0px #1A1600;
+    }
+    .arcade-shadow:active, .arcade-shadow-sm:active {
+      box-shadow: 1px 1px 0px #1A1600;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual header -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <!-- COMPONENT: button-icon -->
+      <a href="../batalla/PantallaDeBatalla.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a batalla" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span id="bag-count" class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">MOCHILA · 7/20</span>
+      </div>
+
+      <!-- COMPONENT: button-icon -->
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Top Icon Menu -->
+    <nav aria-label="Menú principal" class="grid grid-cols-6 gap-gutter-xs">
+      <a href="../inicio/Inicio.html" aria-label="Inicio" title="Inicio" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">home</span></a>
+      <a href="../jugar/Jugar.html" aria-label="Jugar" title="Jugar" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">play_arrow</span></a>
+      <a href="../batalla/PantallaDeBatalla.html" aria-label="Batalla" title="Batalla" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">swords</span></a>
+      <a href="../companeros/CompanerosDigi.html" aria-label="Compañeros" title="Compañeros" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">groups</span></a>
+      <a href="../inventario/InventarioDeObjetos.html" aria-label="Inventario" title="Inventario" class="inline-flex items-center justify-center h-10 bg-light-primary text-light-on-primary border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">backpack</span></a>
+      <a href="../villanos/VillanosTemporada1.html" aria-label="Villanos" title="Villanos" class="inline-flex items-center justify-center h-10 bg-light-surface-container text-light-on-surface border-2 border-light-outline rounded arcade-shadow-sm"><span class="material-symbols-outlined" aria-hidden="true">skull</span></a>
+    </nav>
+
+    <!-- Main Inventory Content -->
+    <main class="flex-1 flex flex-col gap-gutter-md">
+      <div class="flex flex-col gap-gutter-xs">
+        <h1 data-design-text-token="headline-lg-mobile" class="font-headline text-headline-lg-mobile text-light-on-surface uppercase">OBJETOS</h1>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Equipa o usa objetos para ayudar a Gabumon.</p>
+      </div>
+
+      <!-- Category Filter Row -->
+      <nav aria-label="Categorías de objetos" class="grid grid-cols-3 gap-gutter-sm">
+        <button type="button" data-filter="all" class="filter-tab px-gutter-sm py-gutter-sm bg-light-primary text-light-on-primary border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm uppercase text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">TODOS</span>
+        </button>
+        <button type="button" data-filter="heal" class="filter-tab px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm uppercase text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">CURA</span>
+        </button>
+        <button type="button" data-filter="gear" class="filter-tab px-gutter-sm py-gutter-sm bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm font-label text-label-sm uppercase text-center transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span data-design-text-token="label-sm">EQUIPO</span>
+        </button>
+      </nav>
+
+      <!-- Inventory Item Cards -->
+      <section class="flex flex-col gap-gutter-sm" id="items-list">
+
+        <!-- Item 1 -->
+        <!-- COMPONENT: card-action -->
+        <article data-category="heal" data-component-id="card-action" data-component-type="card" data-component-variant="action" class="item-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex items-center justify-between gap-gutter-md">
+          <div class="flex items-center gap-gutter-md min-w-0">
+            <div class="w-12 h-12 shrink-0 flex items-center justify-center bg-light-primary-container text-light-on-primary-container border-2 border-light-outline rounded-sm">
+              <span class="material-symbols-outlined">local_pharmacy</span>
+            </div>
+            <div class="flex flex-col gap-gutter-xs min-w-0">
+              <div class="flex items-center gap-gutter-sm">
+                <h2 data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface">Disco de Cura</h2>
+                <span data-design-text-token="mono-md" class="item-qty font-mono text-mono-md text-light-on-surface-variant tabular-nums">x3</span>
+              </div>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">+40 PS para Gabumon</p>
+            </div>
+          </div>
+          <button type="button" data-item="Disco de Cura" data-effect="+40 PS restaurados" data-qty="3" class="use-btn shrink-0 px-gutter-md py-gutter-sm bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm uppercase transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+            <span data-design-text-token="label-sm">USAR</span>
+          </button>
+        </article>
+
+        <!-- Item 2 -->
+        <!-- COMPONENT: card-action -->
+        <article data-category="heal" data-component-id="card-action" data-component-type="card" data-component-variant="action" class="item-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex items-center justify-between gap-gutter-md">
+          <div class="flex items-center gap-gutter-md min-w-0">
+            <div class="w-12 h-12 shrink-0 flex items-center justify-center bg-light-secondary-container text-light-on-secondary-container border-2 border-light-outline rounded-sm">
+              <span class="material-symbols-outlined">bolt</span>
+            </div>
+            <div class="flex flex-col gap-gutter-xs min-w-0">
+              <div class="flex items-center gap-gutter-sm">
+                <h2 data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface">Carga Digivice</h2>
+                <span data-design-text-token="mono-md" class="item-qty font-mono text-mono-md text-light-on-surface-variant tabular-nums">x2</span>
+              </div>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">+25 PE de energía</p>
+            </div>
+          </div>
+          <button type="button" data-item="Carga Digivice" data-effect="+25 PE recuperados" data-qty="2" class="use-btn shrink-0 px-gutter-md py-gutter-sm bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm uppercase transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+            <span data-design-text-token="label-sm">USAR</span>
+          </button>
+        </article>
+
+        <!-- Item 3 -->
+        <!-- COMPONENT: card-action -->
+        <article data-category="gear" data-component-id="card-action" data-component-type="card" data-component-variant="action" class="item-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex items-center justify-between gap-gutter-md">
+          <div class="flex items-center gap-gutter-md min-w-0">
+            <div class="w-12 h-12 shrink-0 flex items-center justify-center bg-light-primary-container text-light-on-primary-container border-2 border-light-outline rounded-sm">
+              <span class="material-symbols-outlined">memory</span>
+            </div>
+            <div class="flex flex-col gap-gutter-xs min-w-0">
+              <div class="flex items-center gap-gutter-sm">
+                <h2 data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface">Chip de Fuerza</h2>
+                <span data-design-text-token="mono-md" class="item-qty font-mono text-mono-md text-light-on-surface-variant tabular-nums">x1</span>
+              </div>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">+15 Ataque en batalla</p>
+            </div>
+          </div>
+          <button type="button" data-item="Chip de Fuerza" data-effect="Equipado en Gabumon" data-qty="1" class="equip-btn shrink-0 px-gutter-md py-gutter-sm bg-light-secondary text-light-on-secondary border-2 border-light-outline rounded font-label text-label-sm uppercase transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+            <span data-design-text-token="label-sm">EQUIPAR</span>
+          </button>
+        </article>
+
+        <!-- Item 4 -->
+        <!-- COMPONENT: card-action -->
+        <article data-category="gear" data-component-id="card-action" data-component-type="card" data-component-variant="action" class="item-card bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex items-center justify-between gap-gutter-md">
+          <div class="flex items-center gap-gutter-md min-w-0">
+            <div class="w-12 h-12 shrink-0 flex items-center justify-center bg-light-secondary-container text-light-on-secondary-container border-2 border-light-outline rounded-sm">
+              <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="flex flex-col gap-gutter-xs min-w-0">
+              <div class="flex items-center gap-gutter-sm">
+                <h2 data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface">Emblema Amistad</h2>
+                <span data-design-text-token="mono-md" class="item-qty font-mono text-mono-md text-light-on-surface-variant tabular-nums">x1</span>
+              </div>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Activa Digievolución</p>
+            </div>
+          </div>
+          <button type="button" data-item="Emblema Amistad" data-effect="Listo para digievolucionar" data-qty="1" class="equip-btn shrink-0 px-gutter-md py-gutter-sm bg-light-secondary text-light-on-secondary border-2 border-light-outline rounded font-label text-label-sm uppercase transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+            <span data-design-text-token="label-sm">EQUIPAR</span>
+          </button>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- Bottom Feedback Status -->
+    <footer aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+      <p id="inventory-status" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+        Toca un objeto para usarlo o equiparlo.
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var statusEl = document.getElementById('inventory-status');
+      var bagCountEl = document.getElementById('bag-count');
+      var filterTabs = document.querySelectorAll('.filter-tab');
+      var itemCards = document.querySelectorAll('.item-card');
+      var muted = false;
+      var totalItems = 7;
+
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      filterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var filter = tab.getAttribute('data-filter');
+          filterTabs.forEach(function (t) {
+            t.classList.remove('bg-light-primary', 'text-light-on-primary');
+            t.classList.add('bg-light-surface-container', 'text-light-on-surface');
+          });
+          tab.classList.remove('bg-light-surface-container', 'text-light-on-surface');
+          tab.classList.add('bg-light-primary', 'text-light-on-primary');
+
+          itemCards.forEach(function (card) {
+            var cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      document.querySelectorAll('.use-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var qty = parseInt(btn.getAttribute('data-qty'), 10);
+          var name = btn.getAttribute('data-item');
+          var effect = btn.getAttribute('data-effect');
+          if (qty <= 0) {
+            statusEl.textContent = 'No te quedan unidades de ' + name + '.';
+            return;
+          }
+          qty -= 1;
+          totalItems = Math.max(0, totalItems - 1);
+          btn.setAttribute('data-qty', String(qty));
+          var qtySpan = btn.closest('.item-card').querySelector('.item-qty');
+          if (qtySpan) qtySpan.textContent = 'x' + qty;
+          if (bagCountEl) bagCountEl.textContent = 'MOCHILA · ' + totalItems + '/20';
+          statusEl.textContent = name + ': ' + effect + '.';
+          if (qty === 0) {
+            btn.disabled = true;
+            btn.classList.add('opacity-60', 'cursor-not-allowed');
+          }
+        });
+      });
+
+      document.querySelectorAll('.equip-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var name = btn.getAttribute('data-item');
+          var effect = btn.getAttribute('data-effect');
+          var label = btn.querySelector('span');
+          var equipped = btn.getAttribute('data-equipped') === 'true';
+          btn.setAttribute('data-equipped', equipped ? 'false' : 'true');
+          if (label) label.textContent = equipped ? 'EQUIPAR' : 'LISTO';
+          statusEl.textContent = equipped ? name + ' guardado en mochila.' : name + ': ' + effect + '.';
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

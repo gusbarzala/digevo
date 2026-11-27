@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIG.MON — Atacar: Meta y War</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="2292ee7c6c97a428===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'arcade-yellow': '#FFD400',
+        'digivice-orange': '#FF6B00',
+        'gabumon-blue': '#005CBA',
+        'ink-black': '#1A1600',
+        'light-primary': '#005CBA',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#D7E3FF',
+        'light-on-primary-container': '#001B3E',
+        'light-secondary': '#FF6B00',
+        'light-on-secondary': '#1A0800',
+        'light-secondary-container': '#FFDBCC',
+        'light-on-secondary-container': '#351000',
+        'light-surface': '#FFD400',
+        'light-on-surface': '#1A1600',
+        'light-surface-container': '#FFF0C6',
+        'light-surface-container-low': '#FFE177',
+        'light-surface-container-high': '#FFFBFF',
+        'light-on-surface-variant': '#3B2F00',
+        'light-outline': '#1A1600',
+        'light-outline-variant': '#715D00',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#7BABFF',
+        'dark-on-primary': '#001B3E',
+        'dark-primary-container': '#00458E',
+        'dark-on-primary-container': '#D7E3FF',
+        'dark-secondary': '#FF8C52',
+        'dark-on-secondary': '#351000',
+        'dark-secondary-container': '#7A3000',
+        'dark-on-secondary-container': '#FFDBCC',
+        'dark-surface': '#1A1600',
+        'dark-on-surface': '#FFE177',
+        'dark-surface-container': '#231B00',
+        'dark-surface-container-low': '#201C02',
+        'dark-surface-container-high': '#3B2F00',
+        'dark-on-surface-variant': '#EDE3B7',
+        'dark-outline': '#FFD400',
+        'dark-outline-variant': '#715D00',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+      },
+      borderRadius: {
+        'none': '0px',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Press Start 2P"', 'sans-serif'],
+        'headline': ['"Press Start 2P"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '1px', fontWeight: '400' }],
+        'display-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg': ['24px', { lineHeight: '34px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'headline-lg-mobile': ['18px', { lineHeight: '26px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'title-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.25px', fontWeight: '400' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '400' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'button-press': '80ms',
+        'surface-enter': '200ms',
+      },
+      transitionDelay: {
+        'button-press': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'button-press': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&amp;family=Press+Start+2P&amp;family=Spline+Sans+Mono:wght@600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .arcade-shadow { box-shadow: 4px 4px 0px #1A1600; }
+    .arcade-shadow-sm { box-shadow: 3px 3px 0px #1A1600; }
+    .arcade-shadow:active, .arcade-shadow-sm:active { box-shadow: 1px 1px 0px #1A1600; }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen w-full max-w-md mx-auto px-page-margin py-gutter-md flex flex-col justify-between gap-gutter-md">
+
+    <!-- Top contextual header -->
+    <header class="flex items-center justify-between gap-gutter-sm">
+      <a href="../batalla/PantallaDeBatalla.html" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" aria-label="Volver a batalla" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </a>
+
+      <div class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm">
+        <span class="font-mono text-mono-md text-light-on-surface tabular-nums uppercase" data-design-text-token="mono-md">ATACAR · META / WAR</span>
+      </div>
+
+      <button id="sound-toggle" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Alternar sonido" class="inline-flex items-center justify-center w-11 h-11 bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow-sm transition-transform duration-button-press ease-button-press hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-outline">
+        <span id="sound-icon" class="material-symbols-outlined">volume_up</span>
+      </button>
+    </header>
+
+    <!-- Single Digimon Meta / War Attack Mode -->
+    <main class="flex-1 flex flex-col justify-center gap-gutter-md">
+      <div class="flex flex-col gap-gutter-xs">
+        <h1 data-design-text-token="headline-lg-mobile" class="font-headline text-headline-lg-mobile text-light-on-surface uppercase">MODO ATAQUE</h1>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">
+          Un solo Digimon: transforma a Agumon en Meta o War para atacar.
+        </p>
+      </div>
+
+      <!-- Featured Digimon Card -->
+      <article class="bg-light-surface-container text-light-on-surface border-4 border-light-outline rounded arcade-shadow p-gutter-md flex flex-col items-center gap-gutter-md text-center">
+        <div class="w-40 h-40 overflow-hidden rounded-sm border-4 border-light-outline bg-light-surface">
+          <img id="atk-img" src="https://lh3.googleusercontent.com/aida/ALJJyrC-zxDL2LR31v4ywKjA-zs8kB9fv0i_PjqYFso-7H6GiK2_a0DdREl_z_Idy-lIllqTzCe5GPB6tbmpy5DuF4Kk-1lvm454iT34pnc7NG4K77ZKpf3Kg3KZGkOVGXCFzS9nbXIebWRJCG9uKvig51kCURQSMMlhQnzuu_i4AdMzQCLMGcJBr7-VnLcmBUqlijJBioqwtZdjpm78V7cp-CKnM1zSXIrI0PRNnynihRISPOdrDaK_IO8" alt="Agumon" class="w-full h-full object-cover block" data-stitch-original-src="ac908132f6575915===../../images/agumon_partner.jpg">
+        </div>
+
+        <div class="flex flex-col gap-gutter-xs w-full">
+          <span id="atk-mode-label" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-primary uppercase tabular-nums">FORMA BASE · ATQ 35</span>
+          <h2 id="atk-name" data-design-text-token="title-lg" class="font-headline text-title-lg text-light-on-surface">AGUMON</h2>
+          <p id="atk-move" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant">Técnica: Llama Bebé</p>
+        </div>
+
+        <!-- Transform into Meta / War -->
+        <div class="grid grid-cols-3 gap-gutter-xs w-full">
+          <button type="button" data-name="AGUMON" data-mode="FORMA BASE · ATQ 35" data-move="Llama Bebé" data-dmg="35" data-img="../../images/agumon_partner.jpg" class="mode-btn px-gutter-xs py-gutter-sm bg-light-primary text-light-on-primary border-2 border-light-outline rounded font-label text-label-sm uppercase">
+            <span data-design-text-token="label-sm">BASE</span>
+          </button>
+          <button type="button" data-name="METALGREYMON" data-mode="META · ATQ 85" data-move="Giga Destructor" data-dmg="85" data-img="../../images/metalgreymon_evo.jpg" class="mode-btn px-gutter-xs py-gutter-sm bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm uppercase">
+            <span data-design-text-token="label-sm">META</span>
+          </button>
+          <button type="button" data-name="WARGREYMON" data-mode="WAR · ATQ 140" data-move="Fuerza Terra" data-dmg="140" data-img="../../images/wargreymon_evo.jpg" class="mode-btn px-gutter-xs py-gutter-sm bg-light-surface-container-low text-light-on-surface border-2 border-light-outline rounded font-label text-label-sm uppercase">
+            <span data-design-text-token="label-sm">WAR</span>
+          </button>
+        </div>
+
+        <button id="launch-attack" type="button" class="w-full inline-flex items-center justify-center gap-gutter-sm px-gutter-lg py-gutter-md bg-light-secondary text-light-on-secondary border-4 border-light-outline rounded arcade-shadow-sm font-headline text-label-lg uppercase tracking-wider transition-transform duration-button-press ease-button-press active:translate-x-0.5 active:translate-y-0.5">
+          <span class="material-symbols-outlined" aria-hidden="true">bolt</span>
+          <span data-design-text-token="label-lg">ATACAR</span>
+        </button>
+      </article>
+    </main>
+
+    <!-- Status Footer -->
+    <footer aria-live="polite" class="bg-light-surface-container border-4 border-light-outline rounded arcade-shadow-sm px-gutter-md py-gutter-sm">
+      <p id="atk-status" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface text-pretty">
+        Elige BASE, META o WAR y pulsa ATACAR.
+      </p>
+    </footer>
+
+  </div>
+
+  <script data-stitch-original-script="ef92a65ef9ab830f===../../images/greymon_evo.jpg">
+    (function () {
+      var soundBtn = document.getElementById('sound-toggle');
+      var soundIcon = document.getElementById('sound-icon');
+      var muted = false;
+      if (soundBtn && soundIcon) {
+        soundBtn.addEventListener('click', function () {
+          muted = !muted;
+          soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        });
+      }
+
+      var atkImg = document.getElementById('atk-img');
+      var modeLabel = document.getElementById('atk-mode-label');
+      var nameEl = document.getElementById('atk-name');
+      var moveEl = document.getElementById('atk-move');
+      var statusEl = document.getElementById('atk-status');
+      var launchBtn = document.getElementById('launch-attack');
+      var currentName = 'AGUMON';
+      var currentMove = 'Llama Bebé';
+      var currentDmg = '35';
+
+      var modeBtns = document.querySelectorAll('.mode-btn');
+      modeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          modeBtns.forEach(function (b) {
+            b.classList.remove('bg-light-primary', 'text-light-on-primary');
+            b.classList.add('bg-light-surface-container-low', 'text-light-on-surface');
+          });
+          btn.classList.remove('bg-light-surface-container-low', 'text-light-on-surface');
+          btn.classList.add('bg-light-primary', 'text-light-on-primary');
+
+          currentName = btn.getAttribute('data-name');
+          currentMove = btn.getAttribute('data-move');
+          currentDmg = btn.getAttribute('data-dmg');
+          atkImg.src = btn.getAttribute('data-img');
+          atkImg.alt = currentName;
+          modeLabel.textContent = btn.getAttribute('data-mode');
+          nameEl.textContent = currentName;
+          moveEl.textContent = 'Técnica: ' + currentMove;
+          statusEl.textContent = 'Transformado en ' + currentName + '. ¡Listo para atacar!';
+        });
+      });
+
+      if (launchBtn) {
+        launchBtn.addEventListener('click', function () {
+          currentName = 'GREYMON';
+          currentMove = 'Mega Flama';
+          currentDmg = '65';
+          atkImg.src = 'https://lh3.googleusercontent.com/aida/ALJJyrCWmV1xh6vRLLY-nUvPwX39OI9JLbB_PAJvyKni-IHobu1sjpVPYugYoQQIf91XqX5dd8AoBYqn_NYHzZ79A17ZDwfa51a40vEqLGau6ILVRdS7BESq2Xf_8FOfk68TthKtTAugBptfe39UdaqYg8HbesDsGmtP4p6KLWA6DZcEEFeNDdWdpox6w0LgrcxBuzIgx9uudeYGl1sa0o3Ra_qOL7GK7U5lHVcDCtl360FArod9xP8';
+          atkImg.alt = 'Greymon';
+          modeLabel.textContent = 'EVO · ATQ 65';
+          nameEl.textContent = 'GREYMON';
+          moveEl.textContent = 'Técnica: Mega Flama';
+          statusEl.textContent = '¡Transformado en GREYMON! Lanzó Mega Flama e hizo 65 de daño.';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>
