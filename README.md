@@ -54,16 +54,9 @@ Aplicación web interactiva y juego arcade por turnos inspirado en **Digimon Adv
 ## Instalación y Uso Local
 
 ```bash
-# 1. Instalar dependencias
 npm install
-
-# 2. Iniciar servidor de desarrollo (puerto 3000)
 npm run dev
-
-# 3. Verificar tipos de TypeScript
 npm run lint
-
-# 4. Compilar para producción (genera la carpeta dist/)
 npm run build
 ```
 
@@ -71,12 +64,9 @@ npm run build
 
 ## Despliegue en GitHub Pages
 
-Este repositorio incluye el flujo automático `.github/workflows/deploy.yml` y `base: './'` en `vite.config.ts`.
-
 1. Sube los archivos del proyecto a tu rama principal (`main` o `master`) en GitHub.
 2. En tu repositorio de GitHub, ve a **Settings → Pages → Build and deployment → Source**.
-3. Selecciona **GitHub Actions**.
-4. GitHub compilará `dist/` y publicará la aplicación en `https://gusbarzala.github.io/digevo/`.
+3. Selecciona **GitHub Actions** para que compile `dist/` y publique `https://gusbarzala.github.io/digevo/`.
 
 ---
 
